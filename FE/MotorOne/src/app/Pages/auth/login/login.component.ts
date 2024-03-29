@@ -81,7 +81,7 @@ export class LoginComponent {
 
     } else {
 
-      this.msg.password = 'Password corretta'
+      this.msg.password = 'Password inserita correttamente'
     }
   }
 

@@ -1,6 +1,6 @@
 .register-form{
 
-  margin-top: 300px;
+  margin-top: 150px;
 
 }
 $primary: #11998e;
@@ -100,7 +100,7 @@ body {
 
 .welcome-btn,
 .welcome-btn:after {
-  width: 160px;
+  width: 200px;
   height: 40px;
   font-size: 0.9rem;
   background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
@@ -192,4 +192,9 @@ body {
     clip-path: var(--slice-1);
     transform: translate(0);
   }
+}
+
+.registration-container{
+
+  margin-top: 200px;
 }

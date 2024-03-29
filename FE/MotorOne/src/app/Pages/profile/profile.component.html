@@ -41,6 +41,7 @@
         </div>
         <div class="mt-5 text-center">
           <button class="btn btn-primary welcome-btn" type="submit">Update Profile</button>
+          <a class="text-white" routerLink="profile/favourite">Favourite</a>
         </div>
       </div>
     </div>
@@ -94,8 +95,8 @@
   </form>
 
   <div class="container mt-5 mb-5">
-    <h2 class="text-right text-white ms-4 mb-5">Admin menu</h2>
     <div *ngIf="userData.user.role === 'ADMIN'" class="admin-menu">
+      <h2 class="text-right text-white ms-4 mb-5">Admin menu</h2>
       <ul class="d-flex justify-content-between">
         <li><a class="btn btn-primary welcome-btn">Users list</a></li>
         <li><a class="btn btn-primary welcome-btn">User's ID</a></li>
