@@ -1,0 +1,109 @@
+<div class="container mt-5 mb-5">
+  <form [formGroup]="myForm" (ngSubmit)="update()" class="row profile-container">
+    <!-- Left column -->
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center">
+        <img height="150px" *ngIf="userData.user.avatar" id="img" class="my-2 rounded" [src]="userData.user.avatar"
+          alt="user-img">
+        <img height="150px" *ngIf="!userData.user.avatar" id="img" class="my-2 rounded"
+          src="../../../assets/profile-img.webp" alt="placeholder-image">
+        <span class="font-weight-bold text-white mt-3">Welcome, {{ userData.user.name }}</span>
+        <span class="text-black-50"></span>
+        <span> </span>
+      </div>
+      <div class="mt-3 text-center">
+        <input class="mb-2 text-white" type="file" #fileInput (change)="onFileSelected($event)" accept="image/*">
+        <button class="btn btn-primary welcome-btn" type="button" (click)="imageUpload()">Upload image</button>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-right text-white">Profile Settings</h2>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-10">
+            <label class="form__label">Name</label>
+            <input formControlName="name" type="text" class="form-control form__field" placeholder="First name">
+          </div>
+          <div class="col-md-10">
+            <label class="form__label">Surname</label>
+            <input formControlName="surname" type="text" class="form-control form__field" placeholder="Surname">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-10">
+            <label class="labels">Email</label>
+            <input formControlName="email" type="text" class="form-control form__field" placeholder="Enter your email">
+          </div>
+        </div>
+        <div class="mt-5 text-center">
+          <button class="btn btn-primary welcome-btn" type="submit">Update Profile</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <form [formGroup]="changePsw" (ngSubmit)="updatePsw()" class="psw-container">
+    <div class="row mt-3 justify-content-center">
+      <div class="col-md-7 col-11">
+        <label class="labels">Old Password</label>
+        <div class="input-group">
+          <input formControlName="oldPassword" [type]="oldPasswordType" class="form-control form__field"
+            placeholder="Enter your old password">
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="toggleOldPasswordVisibility()">
+              <i class="bi bi-eye-fill"
+                [ngClass]="{'bi-eye': oldPasswordType === 'password', 'bi-eye-fill': oldPasswordType === 'text'}"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-11">
+        <label class="labels">Password</label>
+        <div class="input-group">
+          <input formControlName="newPassword" [type]="passwordType" class="form-control form__field"
+            placeholder="Enter your password">
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="togglePasswordVisibility()">
+              <i class="bi bi-eye-fill"
+                [ngClass]="{'bi-eye': passwordType === 'password', 'bi-eye-fill': passwordType === 'text'}"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-11">
+        <label class="labels">Confirm Password</label>
+        <div class="input-group">
+          <input formControlName="confirmPassword" [type]="confirmPasswordType" class="form-control form__field"
+            placeholder="Confirm password">
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="toggleConfirmPasswordVisibility()">
+              <i class="bi"
+                [ngClass]="{'bi-eye': confirmPasswordType === 'password', 'bi-eye-fill': confirmPasswordType === 'text'}"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-center col-md-12">
+        <button class="btn btn-primary welcome-btn psw-btn" type="submit">Change password</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="container mt-5 mb-5">
+    <h2 class="text-right text-white ms-4 mb-5">Admin menu</h2>
+    <div *ngIf="userData.user.role === 'ADMIN'" class="admin-menu">
+      <ul class="d-flex justify-content-between">
+        <li><a class="btn btn-primary welcome-btn">Users list</a></li>
+        <li><a class="btn btn-primary welcome-btn">User's ID</a></li>
+        <li><a class="btn btn-primary welcome-btn">Ban user</a></li>
+        <li><a class="btn btn-primary welcome-btn">Confirm mail</a></li>
+        <li><a class="btn btn-primary welcome-btn">Delete user</a></li>
+        <li><a class="btn btn-primary welcome-btn">Change role</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

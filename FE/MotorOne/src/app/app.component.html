@@ -1,0 +1,5 @@
+<div class="app-navbar" *ngIf="!router.url.endsWith('welcome')"></div>
+
+<router-outlet></router-outlet>
+
+<div class="app-footer" *ngIf="!router.url.endsWith('welcome')"></div>
