@@ -35,7 +35,17 @@ export class DriversComponent implements OnInit {
     return Math.ceil(drivers.length / itemsPerPage);
   }
 
-  pagesArray(pages: number): number[] {
-    return new Array(pages).fill(0).map((_, index) => index + 1);
+  pagesArray(pages: number, currentPage: number): number[] {
+    const totalPagesToShow = 10;
+    let startPage = 1;
+    let endPage = totalPagesToShow;
+
+    if (currentPage > Math.floor(totalPagesToShow / 2)) {
+      startPage = Math.max(currentPage - Math.floor(totalPagesToShow / 2), 1);
+      endPage = Math.min(startPage + totalPagesToShow - 1, pages);
+    }
+
+    return Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
   }
+
 }
