@@ -34,22 +34,30 @@ public class DriversService {
 
     public Drivers saveDriver(DriversRequest driversRequest){
         Drivers d = new Drivers();
-        d.setPermanentNumber(driversRequest.getPermanentNumber());
-        d.setGivenName(driversRequest.getGivenName());
-        d.setFamilyName(driversRequest.getFamilyName());
-        d.setDateOfBirth(driversRequest.getDateOfBirth());
-        d.setNationality(driversRequest.getNationality());
+        d.setDriver_number(driversRequest.getDriver_number());
+        d.setCountry_code(driversRequest.getCountry_code());
+        d.setBroadcast_name(driversRequest.getBroadcast_name());
+        d.setFirst_name(driversRequest.getFirst_name());
+        d.setLast_name(driversRequest.getLast_name());
+        d.setFull_name(driversRequest.getFull_name());
+        d.setMeeting_key(driversRequest.getMeeting_key());
+        d.setName_acronym(driversRequest.getName_acronym());
+        d.setTeam_name(driversRequest.getTeam_name());
 
         return driversRepository.save(d);
     }
 
     public Drivers updateDriver(int id, DriversRequest driversRequest) throws NotFoundException {
         Drivers d = new Drivers();
-        d.setPermanentNumber(driversRequest.getPermanentNumber());
-        d.setGivenName(driversRequest.getGivenName());
-        d.setFamilyName(driversRequest.getFamilyName());
-        d.setDateOfBirth(driversRequest.getDateOfBirth());
-        d.setNationality(driversRequest.getNationality());
+        d.setDriver_number(driversRequest.getDriver_number());
+        d.setCountry_code(driversRequest.getCountry_code());
+        d.setBroadcast_name(driversRequest.getBroadcast_name());
+        d.setFirst_name(driversRequest.getFirst_name());
+        d.setLast_name(driversRequest.getLast_name());
+        d.setFull_name(driversRequest.getFull_name());
+        d.setMeeting_key(driversRequest.getMeeting_key());
+        d.setName_acronym(driversRequest.getName_acronym());
+        d.setTeam_name(driversRequest.getTeam_name());
 
 
         return driversRepository.save(d);

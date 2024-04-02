@@ -29,3 +29,47 @@
   text-decoration: none;
 
 }
+
+.bg-image{
+
+  background-position: center;
+
+}
+
+.track-container{
+
+  transition: .2s linear;
+
+  &:hover{
+
+    transform: scale(1.02)
+  }
+
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background-color: red;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+

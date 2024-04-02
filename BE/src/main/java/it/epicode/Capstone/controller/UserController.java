@@ -4,6 +4,7 @@ import com.cloudinary.Cloudinary;
 import it.epicode.Capstone.exception.BadRequestException;
 import it.epicode.Capstone.exception.CustomResponse;
 import it.epicode.Capstone.exception.NotFoundException;
+import it.epicode.Capstone.model.entities.Drivers;
 import it.epicode.Capstone.model.entities.User;
 import it.epicode.Capstone.model.request.PasswordRequest;
 import it.epicode.Capstone.model.request.RegisterRequest;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -128,6 +130,14 @@ public class UserController {
 
         return userService.updateRoleUser(email, role);
 
+    }
+
+
+    @GetMapping("/{userId}/favorite")
+    public ResponseEntity<CustomResponse> getFavorite(@PathVariable int userId) throws NotFoundException {
+        User user = userService.getUserById(userId);
+        List<Drivers> favList = user.getFavDrivers();
+        return CustomResponse.success(favList, HttpStatus.OK);
     }
 
     @PostMapping("/{userId}/favorite/drivers/{driverId}")

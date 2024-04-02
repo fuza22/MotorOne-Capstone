@@ -20,6 +20,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -124,7 +126,9 @@ public class UserService {
         User user = getUserById(userId);
         Drivers driver = driversRepository.findById(driverId)
                 .orElseThrow(() -> new NotFoundException("Pilota non trovato"));
-        user.getFavDrivers().add(driver);
+        List<Drivers> favs = user.getFavDrivers();
+        favs.add(driver);
+        user.setFavDrivers(favs);
         return userRepository.save(user);
     }
 

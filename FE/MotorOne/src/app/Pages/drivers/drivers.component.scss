@@ -31,43 +31,47 @@
 }
 
 
-.pagination > button
-{
-    background-color: transparent;
-    color: white;
-}
-
-.pagination > button:focus,
-.pagination > button:hover
-{
-    color: purple;
-    background-color: #eee;
-    border-color: #ddd;
-}
-
-.pagination > .active > a
-{
-    color: white;
-    background-color: purple;
-    border: solid 1px purple;
-}
-
-.pagination > .active > a:hover
-{
-    background-color: purple;
-    border: solid 1px purple;
-}
-
-.pagination-container {
-  display: flex;
-  justify-content: center;
-}
-
 .pagination {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background-color: red;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 
+
+.driv-container{
+
+  background-image: url(../../../assets/f1.png);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: .2s linear;
+
+
+  &:hover{
+
+    transform: scale(1.02)
+  }
+
+}
 
 

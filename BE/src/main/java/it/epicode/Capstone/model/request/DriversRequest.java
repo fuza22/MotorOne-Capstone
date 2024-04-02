@@ -9,15 +9,18 @@ import java.time.LocalDate;
 @Data
 public class DriversRequest {
 
-    @NotBlank(message = "Campo obbligatorio")
-    private int permanentNumber;
-    @NotBlank(message = "Campo obbligatorio")
-    private String givenName;
-    @NotBlank(message = "Campo obbligatorio")
-    private String familyName;
-    @NotBlank(message = "Campo obbligatorio")
-    private LocalDate dateOfBirth;
-    @NotBlank(message = "Campo obbligatorio")
-    private String nationality;
+    private String broadcast_name;
+    private String country_code;
+    private int driver_number;
+    private String first_name;
+    private String full_name;
+    private String headshot_url;
+    private String last_name;
+    private int meeting_key;
+    private String name_acronym;
+    private int session_key;
+    private String team_colour;
+    private String team_name;
+
 
 }
