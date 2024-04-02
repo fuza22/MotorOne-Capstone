@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { IPassword } from '../Models/auth/i-password';
 import { IAuthData } from '../Models/auth/i-auth-data';
+import { IResponse } from '../Models/auth/i-response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ApiBeService {
 
   constructor(private http:HttpClient) { }
 
-  imageUpload(userId: number, file:File):Observable<any>{
+  imageUpload(userId: number, file:File):Observable<IResponse>{
 
     let formData = new FormData();
     formData.append('upload', file);

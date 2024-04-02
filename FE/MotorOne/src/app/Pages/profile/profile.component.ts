@@ -87,15 +87,24 @@ export class ProfileComponent {
   }
 
   update() {
-
     this.userData.user.name = this.myForm.value.name;
     this.userData.user.surname = this.myForm.value.surname;
     this.userData.user.email = this.myForm.value.email;
 
-    this.authService.updateUser(this.userData)
-    .subscribe(() => this.router.navigate(['/homepage']));
+    Swal.fire({
+      title: "Congrats!",
+      text: "Profile updated successfully.",
+      icon: "success",
+      color:"white",
+      background: "#252525",
+      confirmButtonColor: "#FF003B"
+    }).then(() => {
+      this.authService.updateUser(this.userData)
+        .subscribe(() => this.router.navigate(['/homepage']));
+    });
+}
 
-  }
+
 
   toggleOldPasswordVisibility() {
     this.oldPasswordType = this.oldPasswordType === 'password' ? 'text' : 'password';
@@ -120,6 +129,7 @@ export class ProfileComponent {
     if (this.file) {
       this.beSvc.imageUpload(Number(this.id), this.file).subscribe(
         response => {
+          this.userData.user = response.response;
           Swal.fire({
             title: "Congrats!",
             text: "Image uploaded successfully.",
@@ -130,9 +140,6 @@ export class ProfileComponent {
           });
           console.log('Image uploaded successfully', response);
         },
-        error => {
-          console.error('Error uploading image', error);
-        }
       );
     } else {
       Swal.fire({
@@ -147,8 +154,28 @@ export class ProfileComponent {
   }
 
   updatePsw() {
+    if (!this.changePsw.value.oldPassword || !this.changePsw.value.newPassword || !this.changePsw.value.confirmPassword) {
+      Swal.fire({
+        title: "Error!",
+        text: "Please enter all required passwords.",
+        icon: "error",
+        color: "white",
+        background: "#252525",
+        confirmButtonColor: "#FF003B"
+      });
+      return;
+    }
+
     if (this.changePsw.invalid) {
       this.changePsw.markAllAsTouched();
+      Swal.fire({
+        title: "Error!",
+        text: "Please enter passwords.",
+        icon: "error",
+        color: "white",
+        background: "#252525",
+        confirmButtonColor: "#FF003B"
+      });
       return;
     }
 
@@ -195,5 +222,7 @@ export class ProfileComponent {
         this.changePsw.reset();
       }
     );
-  }
+}
+
+
 }
