@@ -1,5 +1,6 @@
 package it.epicode.Capstone.security;
 
+import it.epicode.Capstone.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,18 @@ public class SecurityChain {
 
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll());
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/user/**").permitAll());
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/user/search/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/user/delete/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/user/role/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/drivers/create/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/drivers/update/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/drivers/delete/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/constructors/create/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/constructors/update/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/constructors/delete/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/circuit/create/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/circuit/update/**").hasAnyAuthority(Role.ADMIN.name()));
+        httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/circuit/delete/**").hasAnyAuthority(Role.ADMIN.name()));
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/**").denyAll());
 
         return httpSecurity.build();
