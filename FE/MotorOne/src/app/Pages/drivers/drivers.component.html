@@ -2,7 +2,7 @@
   <h2 class="text-white ms-4 mb-4">Explore all F1 Drivers</h2>
   <div class="col-12 col-md-4 driv-container" *ngFor="let d of paginate(drivers, currentPage, itemsPerPage)">
     <div class="ms-3 card-container row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
+      <div class="col p-4 d-flex flex-column position-static bg-image" [ngStyle]="{'background-image': 'url(../../../../../../assets/' + d.name_acronym + '.png)'}">
         <strong class="d-inline-block mb-1 driver-text">Driver</strong>
         <h3 class="mb-0 text-white driver-name">{{d.first_name}}</h3>
         <h3 class="mb-0 text-white driver-name fw-bold text-uppercase surname fs-5">{{d.last_name}}</h3>
@@ -10,9 +10,9 @@
         <p class="card-text mb-auto text-white">{{d.name_acronym}}</p>
         <a class="driver-text" [routerLink]="['/drivers/details', d.driver_number]"><span class="me-1">See driver details</span></a>
       </div>
-      <div class="col-auto d-lg-block">
+      <!-- <div class="col-auto d-lg-block">
         <img class="driver-img" [src]="d.headshot_url" alt="driver-img">
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
