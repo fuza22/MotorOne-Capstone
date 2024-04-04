@@ -21,12 +21,14 @@
 .car-icon{
 
   height: 50px;
+  width: 75px;
 
 }
 
 .track-icon{
 
   height: 45px;
+  margin-bottom: 4px;
 
 }
 
@@ -188,4 +190,22 @@
 .navbar-inverse {
   background: rgb(37,37,37);
   background: linear-gradient(180deg, rgba(37,37,37,1) 0%, rgba(38,38,38,0.5886729691876751) 71%, rgba(38,38,38,0) 100%);
+}
+
+.casco{
+
+  margin-bottom: 13px;
+
+}
+
+.circ-container{
+
+  margin-left: -40px;
+
+}
+
+.icons-nav{
+
+  margin-left: 30px;
+
 }
