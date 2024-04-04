@@ -82,9 +82,9 @@
       <div class="offcanvas-body d-flex align-items-end justify-content-around">
         <li data-bs-toggle="offcanvas" class="nav-item mob-nav-item"><a routerLinkActive="active"
             [routerLink]="['/profile/', myUser.user.id]" class="nav-link">
-            <i class="bi bi-person-lines-fill nav-icon"></i><p class="off-c-text">Profile</p></a></li>
+            <i class="bi bi-person-lines-fill nav-icon profile-logout"></i><p class="off-c-text">Profile</p></a></li>
         <li class="nav-item mob-nav-item"><a (click)="logout()" class="nav-link"><i
-              class="bi bi-door-open-fill nav-icon"></i><p class="off-c-text">Log-Out</p></a></li>
+              class="bi bi-door-open-fill nav-icon profile-logout"></i><p class="off-c-text">Log-Out</p></a></li>
       </div>
     </div>
   </ul>

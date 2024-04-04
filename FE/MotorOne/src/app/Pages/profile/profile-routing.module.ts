@@ -6,7 +6,7 @@ import { FavoriteComponent } from './favorite/favorite.component';
 const routes: Routes = [
   { path: '', component: ProfileComponent },
   // { path: ':id', component: ProfileComponent },
-  { path: 'profile/favourite', component: FavoriteComponent }
+  { path: 'profile/favourite', component: FavoriteComponent, title: 'Profile - MotorOne' }
 ];
 
 @NgModule({

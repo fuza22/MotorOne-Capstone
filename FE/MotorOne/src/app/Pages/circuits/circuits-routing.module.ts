@@ -4,8 +4,8 @@ import { CircuitsComponent } from './circuits.component';
 import { CircuitsDetailsComponent } from './circuits-details/circuits-details.component';
 
 const routes: Routes = [{ path: '', component: CircuitsComponent },
-{ path: 'search', component: CircuitsComponent },
-{ path: 'details/:circuit_key', component: CircuitsDetailsComponent }];
+{ path: 'search', component: CircuitsComponent, title: 'Circuits - MotorOne'},
+{ path: 'details/:circuit_key', component: CircuitsDetailsComponent, title: 'Circuits - MotorOne' }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
