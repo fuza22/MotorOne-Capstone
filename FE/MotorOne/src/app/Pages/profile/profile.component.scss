@@ -48,6 +48,15 @@ body {
 
   margin-top: 200px;
 
+
+  @media (max-width: 768px) {
+
+
+    margin-top: 15px;
+
+  }
+
+
 }
 
 $primary: #11998e;
